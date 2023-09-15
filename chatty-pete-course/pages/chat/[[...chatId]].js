@@ -1,7 +1,7 @@
 import { ChatSidebar } from "components/ChatSidebar";
 import Head from "next/head";
 
-export default function Home() {
+export default function ChatPage() {
   return (
     <>
       <Head>
