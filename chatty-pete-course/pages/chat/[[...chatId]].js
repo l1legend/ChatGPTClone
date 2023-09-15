@@ -1,12 +1,19 @@
+import { ChatSidebar } from "components/ChatSidebar";
 import Head from "next/head";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Next JS ChatGPT Starter</title>
+        <title>New Chat</title>
       </Head>
-      <h1>Welcome to the chat id page</h1>
-    </div>
+      <div className="grid h-screen grid-cols-[260px_1fr]">
+        <ChatSidebar />
+        <div className="flex flex-col bg-gray-700">
+          <div className="flex-1">Chat window</div>
+          <footer className="bg-gray-800 p-10">footer</footer>
+        </div>
+      </div>
+    </>
   );
 }
