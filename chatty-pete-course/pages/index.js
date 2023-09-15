@@ -9,15 +9,14 @@ export default function Home() {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <div>
+    <>
       <Head>
-        <title>Next JS ChatGPT Starter</title>
+        <title>Chatty Pete - Login or Signup</title>
       </Head>
-      <h1>Welcome to the Next JS &amp; ChatGPT Starter</h1>
-      <div>
+      <div className="flex justify-center items-center min-h-screen w-full bg-gray-800 text-white text-center">
       {!!user && <Link href="/api/auth/logout">Logout</Link>}
       {!user && <Link href="/api/auth/login">Login</Link>}
       </div>
-    </div>
+    </>
   );
 }
