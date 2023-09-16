@@ -7,7 +7,24 @@ export default function ChatPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("MESSAGE TEXT: ", messageText);    
+    console.log("MESSAGE TEXT: ", messageText);
+    const response = await fetch("/api/chat/sendMessage", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ message: messageText }),
+    });
+    const data = response.data;
+    if (!data){
+      console.log("ERROR: No data return", data);
+      return;
+    }
+
+    const reader = data.getReader();
+    await streamReader(reader, (message) => {
+      console.log("MESSAGE: ", message);
+    })
   };
 
   return (
@@ -29,7 +46,9 @@ export default function ChatPage() {
                   className="w-full resize-none rounded-md bg-gray-700 p-2 text-white
                   focus:border-emerald-500 focus:bg-gray-600 focus:outline focus:outline-emerald-500"
                 />
-                <button type="submit" className="btn">Send</button>
+                <button type="submit" className="btn">
+                  Send
+                </button>
               </fieldset>
             </form>
           </footer>
