@@ -15,7 +15,7 @@ export default function ChatPage() {
       },
       body: JSON.stringify({ message: messageText }),
     });
-    const data = response.data;
+    const data = response.body;
     if (!data){
       console.log("ERROR: No data return", data);
       return;
