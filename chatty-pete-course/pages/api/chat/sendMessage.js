@@ -12,6 +12,7 @@ export default async function handler(req) {
         headers: {
             'content-type': 'application/json',
             Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+            "OpenAI-Organization": "org-oIvC6TYLCX6etAMoqntUSwVX"
         },
         method: "POST",
         body: JSON.stringify({
