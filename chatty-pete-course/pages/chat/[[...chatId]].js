@@ -1,3 +1,4 @@
+import { streamReader } from "openai-edge-stream";
 import { ChatSidebar } from "components/ChatSidebar";
 import Head from "next/head";
 import { useState } from "react";
